@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "openPlot", "openPlot.csproj", "{4BCF0130-9346-40B5-8E98-EECA328889B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "openPlot.Tests", "..\openPlot.Tests\openPlot.Tests.csproj", "{F9AD0D03-49BA-4F9F-9D27-CB92C4410542}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BCF0130-9346-40B5-8E98-EECA328889B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BCF0130-9346-40B5-8E98-EECA328889B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BCF0130-9346-40B5-8E98-EECA328889B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BCF0130-9346-40B5-8E98-EECA328889B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9AD0D03-49BA-4F9F-9D27-CB92C4410542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9AD0D03-49BA-4F9F-9D27-CB92C4410542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9AD0D03-49BA-4F9F-9D27-CB92C4410542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9AD0D03-49BA-4F9F-9D27-CB92C4410542}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D75383EB-1F4B-4957-8E5F-111FEBAD4215}
+	EndGlobalSection
+EndGlobal

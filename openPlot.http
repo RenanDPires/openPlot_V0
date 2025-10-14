@@ -1,0 +1,18 @@
+@openPlot_HostAddress = http://localhost:5049
+
+GET {{openPlot_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+### Submit (POST) — primeira etapa
+POST https://localhost:7083/api/v1/searches/submit
+Content-Type: application/json
+
+{
+  "username": "renan.pires",
+  "configVersion": "SIN_prod_2025_09",
+  "terminais": ["RJTRIO_PL1","PAXNGB_PL2"],
+  "resolucao": { "agg": "100ms" }
+}
+
