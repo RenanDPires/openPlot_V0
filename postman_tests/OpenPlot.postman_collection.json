@@ -1,0 +1,126 @@
+{
+  "info": {
+    "_postman_id": "bb2fd5d5-9e6b-4c5a-a3e0-fix000000001",
+    "name": "OpenPlot (fix) • Auth + Configs",
+    "description": "Fluxo estável: login, configs (pass), logout, configs (fail). Sem setNextRequest.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth (pass e fail)",
+      "item": [
+        {
+          "name": "1) POST /auth/login (OK - beatriz)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/auth/login",
+            "body": { "mode": "raw", "raw": "{\n  \"username\": \"{{login_username}}\",\n  \"password\": \"{{login_password}}\"\n}" }
+          },
+          "event": [
+            { "listen": "test", "script": { "exec": ["pm.test('Login 200',()=>pm.response.to.have.status(200));"] } }
+          ]
+        },
+        {
+          "name": "2) POST /auth/login (usuário errado)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/auth/login",
+            "body": { "mode": "raw", "raw": "{\n  \"username\": \"usuario.inexistente\",\n  \"password\": \"qualquer\"\n}" }
+          },
+          "event": [
+            { "listen": "test", "script": { "exec": ["pm.test('401 usuário inválido',()=>pm.response.to.have.status(401));"] } }
+          ]
+        },
+        {
+          "name": "3) POST /auth/login (senha errada)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/auth/login",
+            "body": { "mode": "raw", "raw": "{\n  \"username\": \"{{login_username}}\",\n  \"password\": \"senha-errada\"\n}" }
+          },
+          "event": [
+            { "listen": "test", "script": { "exec": ["pm.test('401 senha inválida',()=>pm.response.to.have.status(401));"] } }
+          ]
+        },
+        {
+          "name": "4) GET /auth/me (precisa estar logado)",
+          "request": { "method": "GET", "url": "{{base_url}}/auth/me" },
+          "event": [
+            { "listen": "test", "script": { "exec": [
+              "pm.test('me 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json(); pm.expect(j).to.have.property('username');"
+            ] } }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Requests configurações (pass)",
+      "description": "Requer sessão válida (rode o login antes).",
+      "item": [
+        {
+          "name": "5) GET /configs/manifest (array)",
+          "request": { "method": "GET", "url": "{{base_url}}/configs/manifest" },
+          "event": [
+            { "listen": "test", "script": { "exec": [
+              "pm.test('manifest 200',()=>pm.response.to.have.status(200));",
+              "const arr = pm.response.json(); pm.expect(Array.isArray(arr)).to.eql(true);"
+            ] } }
+          ]
+        },
+        {
+          "name": "6) GET /configs/manifest/meta (obj)",
+          "request": { "method": "GET", "url": "{{base_url}}/configs/manifest/meta" },
+          "event": [
+            { "listen": "test", "script": { "exec": [
+              "pm.test('manifest/meta 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json(); pm.expect(j).to.have.property('count'); pm.expect(Array.isArray(j.files)).to.eql(true);"
+            ] } }
+          ]
+        },
+        {
+          "name": "7) POST /auth/logout (com login)",
+          "request": { "method": "POST", "url": "{{base_url}}/auth/logout" },
+          "event": [
+            { "listen": "test", "script": { "exec": ["pm.test('logout 200',()=>pm.response.to.have.status(200));"] } }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Requests configurações (fail)",
+      "description": "Sem sessão: deve retornar 401.",
+      "event": [
+        { "listen": "prerequest", "script": { "exec": [
+          "pm.cookies.jar().clear(pm.environment.get('base_url'), function(){});"
+        ] } }
+      ],
+      "item": [
+        {
+          "name": "8) GET /configs/manifest (sem login) → 401",
+          "request": { "method": "GET", "url": "{{base_url}}/configs/manifest" },
+          "event": [
+            { "listen": "test", "script": { "exec": ["pm.test('401 manifest',()=>pm.response.to.have.status(401));"] } }
+          ]
+        },
+        {
+          "name": "9) GET /configs/manifest/meta (sem login) → 401",
+          "request": { "method": "GET", "url": "{{base_url}}/configs/manifest/meta" },
+          "event": [
+            { "listen": "test", "script": { "exec": ["pm.test('401 manifest/meta',()=>pm.response.to.have.status(401));"] } }
+          ]
+        },
+        {
+          "name": "10) POST /auth/logout (sem login) → 401",
+          "request": { "method": "POST", "url": "{{base_url}}/auth/logout" },
+          "event": [
+            { "listen": "test", "script": { "exec": ["pm.test('401 logout sem sessão',()=>pm.response.to.have.status(401));"] } }
+          ]
+        }
+      ]
+    }
+  ]
+}
