@@ -19,7 +19,7 @@ public sealed class SubmitSearchHandler : ICommandHandler<SubmitSearchCommand, S
             ConfigVersion = r.ConfigVersion,
             Terminais = r.Terminais.ToArray(),
             Mode = cmd.Mode,
-            Agg = cmd.Agg,
+            //Agg = cmd.Agg,
             SelectRate = cmd.SelectRate
         };
         return Task.FromResult(resp);

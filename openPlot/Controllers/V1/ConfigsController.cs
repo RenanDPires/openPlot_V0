@@ -20,7 +20,7 @@ public sealed class ConfigsController : ControllerBase
 
     /// <summary>
     /// Retorna SOMENTE um array JSON com os nomes dos arquivos XML (formato esperado pelo consumidor).
-    /// Ex.: ["SIN_UFSC_A.xml","SIN_UFSC_B.xml"]
+    /// Ex.: ["OH2_ONS_BSB.xml","OH2_ONS_BSB_GOLD.xml"]
     /// </summary>
     [HttpGet("manifest")]
     [RequireUser] // se quiser liberar público por enquanto, remova este atributo

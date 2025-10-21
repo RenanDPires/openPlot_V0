@@ -5,7 +5,7 @@
     "password": "Bea@1234",
     "preferred_username": "beatriz.dev",
     "email": "beatriz@openplot.dev",
-    "roles": ["reader"],
+    "roles": ["admin"],
     "claims": {
       "organization": "LabPlan",
       "tenant": "UFSC_lab"
@@ -29,7 +29,7 @@
     "password": "Renan@1234",
     "preferred_username": "renan.dev",
     "email": "renan@openplot.dev",
-    "roles": ["admin"],
+    "roles": ["reader"],
     "claims": {
       "organization": "UFSC",
       "tenant": "UFSC_dev"

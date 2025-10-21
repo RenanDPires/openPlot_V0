@@ -37,7 +37,7 @@ public sealed class SearchesController : ControllerBase
             RequestId = Guid.NewGuid().ToString("N"),
             Payload = request,
             Mode = norm.mode,
-            Agg = norm.agg,
+            //Agg = norm.agg,
             SelectRate = norm.rate
         };
 

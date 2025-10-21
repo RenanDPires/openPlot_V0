@@ -31,7 +31,7 @@ public class CustomWebAppFactory : WebApplicationFactory<Program>
                     ConfigVersion = c.Payload.ConfigVersion,
                     Terminais = c.Payload.Terminais,
                     Mode = c.Mode,
-                    Agg = c.Agg,
+                    //Agg = c.Agg,
                     SelectRate = c.SelectRate
                 });
 

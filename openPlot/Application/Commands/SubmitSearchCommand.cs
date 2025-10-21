@@ -8,6 +8,6 @@ public sealed class SubmitSearchCommand
     public required SubmitSearchRequest Payload { get; init; }
 
     public required string Mode { get; init; }  // "agg" | "rate"
-    public string? Agg { get; init; }
+    // public string? Agg { get; init; }
     public int? SelectRate { get; init; }
 }

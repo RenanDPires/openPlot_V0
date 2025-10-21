@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("openPlot.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4fbe2458c245ad1b639afc5860f3fbd52eb6de3")]
 [assembly: System.Reflection.AssemblyProductAttribute("openPlot.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("openPlot.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

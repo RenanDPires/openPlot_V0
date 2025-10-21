@@ -422,3 +422,4 @@ D:\openPlot\openPlot.Tests\obj\Debug\net8.0\refint\openPlot.Tests.dll
 D:\openPlot\openPlot.Tests\obj\Debug\net8.0\openPlot.Tests.pdb
 D:\openPlot\openPlot.Tests\obj\Debug\net8.0\openPlot.Tests.genruntimeconfig.cache
 D:\openPlot\openPlot.Tests\obj\Debug\net8.0\ref\openPlot.Tests.dll
+D:\openPlot\openPlot.Tests\obj\Debug\net8.0\openPlot.Tests.sourcelink.json
